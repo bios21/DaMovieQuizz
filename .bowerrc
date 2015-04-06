@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "postinstall": "grunt bowerRequirejs"
+  },
+  "directory": "app/src/lib",
+  "json": "bower.json"
+}

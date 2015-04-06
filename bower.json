@@ -1,0 +1,27 @@
+{
+  "name": "DaMovieQuizz",
+  "version": "1.0.0",
+  "description": "Wisembly test",
+  "main": "app/app.js",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "Lilian Saget-Lethias"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bios21/DaMovieQuizz",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "latest",
+    "backbone": "latest",
+    "underscore": "latest",
+    "jquery": "latest"
+  }
+}
