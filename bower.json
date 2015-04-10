@@ -20,8 +20,10 @@
   ],
   "dependencies": {
     "requirejs": "latest",
+    "requirejs-text": "latest",
     "backbone": "latest",
     "underscore": "latest",
-    "jquery": "latest"
+    "jquery": "latest",
+    "backbone.localStorage": "latest"
   }
 }

@@ -2,10 +2,114 @@
 <html>
 <head lang="fr">
     <meta charset="UTF-8">
-    <title></title>
-    <script data-main="dist/DaMovieQuizz" src="dist/require.js"></script>
+    <title>DaMovieQuiz</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+        body {
+            background: #262626;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 735px;
+            margin: 50px auto;
+            background: whitesmoke;
+            padding: 25px;
+            text-align: center;
+            border-radius: 2px 2px 2px 2px;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Open Sans", sans-serif;
+            font-size: 27px;
+            color: whitesmoke;
+            font-weight: 700;
+        }
+
+        .button {
+            border: 0 none;
+            border-radius: 2px 2px 2px 2px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Arial,sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 20px;
+            margin-bottom: 0;
+            margin-top: 10px;
+            padding: 7px 10px;
+            text-transform: none;
+            transition: all 0.3s ease 0s;
+            -moz-transition: all 0.3s ease 0s;
+            -webkit-transition: all 0.3s ease 0s;
+            width: auto;
+        }
+        .button.red {
+            background: none repeat scroll 0 0 #E0645C;
+            color: #FFFFFF;
+        }
+        .button.red:hover {
+            background: none repeat scroll 0 0 #999999;
+            color: #FFFFFF;
+        }
+        .button.dark {
+            background: none repeat scroll 0 0 #444444;
+            color: #FFFFFF;
+        }
+        .button.dark:hover {
+            background: none repeat scroll 0 0 #2DB6CF;
+            color: #FFFFFF;
+        }
+        .button.light {
+            background: none repeat scroll 0 0 #999999;
+            color: #FFFFFF;
+        }
+        .button.light:hover {
+            background: none repeat scroll 0 0 #444444;
+            color: #FFFFFF;
+        }
+        .button.green {
+            background: none repeat scroll 0 0 #46b98a;
+            color: #FFFFFF;
+        }
+        .button.green:hover {
+            background: none repeat scroll 0 0 #444444;
+            color: #FFFFFF;
+        }
+        .button.blue {
+            background: none repeat scroll 0 0 #2DB6CF;
+            color: #FFFFFF;
+        }
+        .button.blue:hover {
+            background: none repeat scroll 0 0 #444444;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
-    <h1>ZIZI</h1>
+    <h1>
+        Wisembly DaMovieQuizz
+    </h1>
+    <div id="container">
+
+    </div>
+    <script src="dist/require.js"></script>
+    <script>
+        ;(function() {
+            var PROD = false;
+
+            if (PROD) {
+                require(['dist/DaMovieQuizz']);
+            } else {
+                require(['src/config'], function() {
+                    require.config({baseUrl:'src'});
+                    require(['DaMovieQuizz']);
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

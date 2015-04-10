@@ -1,0 +1,7 @@
+<div id="highscoreView">
+    <ul>
+        <% _.each(highscoreList, function(item) { %>
+        <li><span class="highscoreItemName"><%- item.name %></span> - <span class="highscoreItemScore"><%- item.score %></span></li>
+        <% }); %>
+    </ul>
+</div>

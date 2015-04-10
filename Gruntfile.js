@@ -16,19 +16,26 @@ module.exports = function(grunt) {
                 tasks: ['jshint', 'watch:gruntfile']
             },
             src: {
-                files: ['<%= _static.src %>/*.js'],
+                files: ['<%= _static.src %>/**/*.js'],
                 tasks: ['jshint', 'requirejs']
+            },
+            templates: {
+                files: ['<%= _static.src %>/templates/*'],
+                tasks: ['copy:templates']
             }
         },
         concurrent: {
             options: {
                 logConcurrentOutput: true
             },
+            base: {
+                tasks: ['concurrent:sources', 'concurrent:config']
+            },
+            sources: {
+                tasks: ['watch:src', 'watch:templates']
+            },
             config: {
                 tasks: ['watch:gruntfile']
-            },
-            source: {
-                tasks: ['watch:src']
             }
         },
         requirejs: {
@@ -52,6 +59,13 @@ module.exports = function(grunt) {
                     '<%= _static.dist %>/require.js': ['<%= _static.src %>/lib/requirejs/require.js']
                 }
             }
+        },
+        copy: {
+            templates: {
+                files: [
+                    {expand: true, cwd: '<%= _static.src %>/templates/', src: ['**'], dest: '<%= _static.dist %>/templates/'}
+                ]
+            }
         }
     });
 
@@ -60,9 +74,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('doRequireStuff', ['bowerRequirejs', 'requirejs', 'uglify']);
+    grunt.registerTask('doRequireStuff', ['bowerRequirejs', 'requirejs', 'uglify', 'copy']);
 
     grunt.registerTask('default', ['jshint', 'doRequireStuff']);
 };
